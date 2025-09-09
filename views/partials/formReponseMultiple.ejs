@@ -1,0 +1,59 @@
+<form id="form-ajout-reponses" action="/reponses/reponsesMultiples" method="POST">
+
+    <!-- Champ pour saisir le nombre de réponses -->
+    <div class="mb-3">
+        <label for="nbReponses" class="form-label">Nombre de réponses pour la question : "<%= question.question %>"</label>
+        <input type="number" id="nbReponses" class="form-control" min="1" max="10" required>
+    </div>
+
+    <!-- Bouton Ajouter Nobre de réponses Réponses -->
+    <button type="button" id="btn-generer-champs" class="btn btn-primary">Validé</button>
+
+    <!-- Zone pour afficher dynamiquement les champs de réponses -->
+    <div id="zone-reponses" class="mt-4"></div>
+
+    <!-- Bouton pour soumettre le formulaire -->
+    <button type="submit" id="submitForm" class="btn btn-success" style="display: none;">Enregistrer les réponses</button>
+</form>
+
+<script>
+    document.getElementById('btn-generer-champs').addEventListener('click', function() {
+                            var nbReponses = parseInt(document.getElementById('nbReponses').value);
+                            var formulaire = document.getElementById('zone-reponses');
+                            
+                            // Effacer les anciens champs
+                            formulaire.innerHTML = '';
+
+                            // Vérifier que le nombre de réponses est valide
+                            if (nbReponses >= 1 && nbReponses <= 10) {
+                                                for (var i = 0; i < nbReponses; i++) {
+                                                                                        var formulaireHtml = `
+                                                                                                                <div class="mb-3 border p-3 rounded shadow-sm">
+                                                                                                                    <div class="mb-3">
+                                                                                                                        <label for="reponse_${i}" class="form-label">Réponse ${i + 1} :</label>
+                                                                                                                        <input type="text" name="reponses[]" id="reponse_${i}" class="form-control" required>
+                                                                                                                    </div>
+                                                                                                                    
+                                                                                                                    <div class="mb-3">
+                                                                                                                        <div class="form-check mt-2">
+                                                                                                                            <input type="radio" name="isCorrect" value="${i}">
+                                                                                                                            <label for="bonne_${i}" class="form-check-label">Bonne réponse</label>
+                                                                                                                        </div>
+                                                                                                                    </div>
+
+                                                                                                                    <div class="mb-3">
+                                                                                                                        <label>Note :</label>
+                                                                                                                        <input type="number" name="notes[]" min="0" required>
+                                                                                                                    </div>
+                                                                                                                </div>`;
+                                                                                        
+                                                                                        formulaire.innerHTML += formulaireHtml;
+                                                                                    }
+
+                                                // Afficher le bouton de soumission une fois que les réponses sont générées
+                                                document.getElementById('submitForm').style.display = 'inline-block';
+                                            } else {
+                                alert('Veuillez entrer un nombre de réponses valide (entre 1 et 10).');
+                            }
+    });
+</script>

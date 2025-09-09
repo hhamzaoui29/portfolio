@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Détail de la note</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/portfolio.css"> 
+</head>
+<body class="bg-light">
+     <!-- Barre de navigation -->
+     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <!-- Bouton hamburger (mobile) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <!-- Lien absolu vers ton portfolio -->
+          <h1 class="h1">
+            <a href="#" class="btn btn-secondary">⬅️ ACCUEIL</a>
+          </h1>
+        </div>
+      </div>
+    </nav>
+  <div class="container py-4">
+    <h1 class="mb-4"> 📌  Détail de la note</h1>
+    <div class="mb-4">
+      <a href="/notes" class="btn btn-secondary">⬅️ Retour</a>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h2><%= note.titre %></h2>
+      </div>
+      <div class="card-body">
+        <p><strong>Date :</strong> <%= note.date %></p>
+        <p><strong>Contenu :</strong></p>
+        <p><%= note.contenu %></p>
+      </div>
+    </div>
+
+    <!-- Boutons navigation -->
+    <div class="mt-3">
+      <a href="/notes/formUpdateNote/<%= note.id %>" class="btn btn-warning">✏️ Modifier</a>
+      <form action="/notes/deleteNote/<%= note.id %>" method="POST" class="d-inline">
+        <button type="submit" class="btn btn-danger">🗑️ Supprimer</button>
+      </form>
+    </div>
+  </div>
+    <!-- Footer -->
+<footer class="bg-light text-center py-4 mt-5">
+  <p class="mb-1">&copy; <%= new Date().getFullYear() %> Hamzaoui Hamid - Tous droits réservés.</p>
+  <ul class="list-inline">
+      <li class="list-inline-item"><a href="/contact">Nous contacter</a></li>
+      <li class="list-inline-item"><a href="#">Confidentialité</a></li>
+      <li class="list-inline-item"><a href="#">Conditions</a></li>
+  </ul>
+</footer>
+</body>
+</html>

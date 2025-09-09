@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon Portfolio - Projets</title>
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="/">Mon Portfolio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="/">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/projets">Projets</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Title -->
+  <header class="bg-primary text-white text-center py-5">
+    <div class="container">
+      <h1>Mes Projets</h1>
+      <p class="lead">Voici quelques applications que j'ai développées.</p>
+      <!-- Correction orthographique : "j'ai" au lieu de "jai" -->
+      <a href="/projets/create" class="btn btn-light btn-lg mt-3">Ajouter un projet</a>
+    </div>
+  </header>
+
+  <!-- Liste des projets -->
+  <section class="container my-5">
+    <div class="row">
+      <% if (projets.length === 0) { %>
+        <p>Aucun projet pour le moment.</p>
+        <!-- Correction orthographique : "Aucun projet pour le moment" -->
+      <% } else { %>
+        <% projets.forEach(projet => { %>
+          <div class="col-md-4 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title"><%= projet.titre %></h5>
+                <p class="card-text"><%= projet.description %></p>
+                <% if (projet.lien) { %>
+                  <a href="<%= projet.lien %>" class="btn btn-primary" target="_blank">Voir le projet</a>
+                  <!-- target="_blank" pour ouvrir dans un nouvel onglet -->
+                <% } %>
+              </div>
+              <div class="card-footer text-end">
+                <a href="/projets/edit/<%= projet.id %>" class="btn btn-sm btn-warning">Modifier</a>
+                <form action="/projets/delete/<%= projet.id %>" method="POST" class="d-inline">
+                  <button type="submit" class="btn btn-sm btn-danger">Supprimer</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        <% }); %>
+      <% } %>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-4">
+    <p>&copy; 2025 Mon Portfolio. Tous droits réservés.</p>
+  </footer>
+
+  <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

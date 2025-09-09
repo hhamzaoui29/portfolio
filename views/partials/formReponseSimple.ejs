@@ -1,0 +1,38 @@
+
+
+<form action="/reponses/reponseSimple" method="POST" class="mt-4">
+
+    <!-- ID de la question -->
+    <input type="hidden" name="idQuestion" value="<%= question.id_question %>">
+
+    <!-- ID de la catégorie -->
+    <input type="hidden" name="idCategorie" value="<%= question.categorie_id %>">
+
+    <!-- Réponse -->
+    <div class="mb-3">
+        <label for="reponse" class="form-label">Réponse :</label>
+        <input type="text" name="reponse" id="reponse" class="form-control" required>
+    </div>
+
+    <!-- chix de la bonne reponses "estCorrect"-->
+    <div class="form mb-3">
+        <label class="form-label">Est Correcte :</label>
+        <div>
+            <input type="radio" id="isCorrectTrue" name="isCorrect" value="true" required /> 
+            <label for="isCorrectTrue">Oui</label>
+    
+            <input type="radio" id="isCorrectFalse" name="isCorrect" value="false" required />
+            <label for="isCorrectFalse" class="form-label" >Non</label>
+        </div>
+    </div>
+
+    <!-- Note (si tu veux évaluer la réponse, tu peux mettre 1 par défaut) -->
+    <div class="mb-3">
+        <label for="note" class="form-label">Note :</label>
+        <input type="number" name="note" id="note" class="form-control" value="1" required>
+    </div>
+
+    <!-- Bouton de validation -->
+    <button type="submit" class="btn btn-primary">Enregistrer la réponse</button>
+</form>
+
