@@ -21,13 +21,17 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <!-- Lien absolu vers ton portfolio -->
           <h1 class="h1">
-            <a href="/portfolio" class="btn btn-secondary">⬅️ ACCUEIL</a>
+            <a href="/projets" class="btn btn-secondary">⬅️ Retour à Liste Des Projets</a>
           </h1>
         </div>
       </div>
     </nav>
+
   <div class="container py-4">
-    <h1 class="mb-4"> ✏️ Modifier la réservation</h1>
+    <h1 class="mb-4"> ➕ Modifier une réservation</h1>
+    <div class="mb-4">
+      <a href="/reservations" class="btn btn-secondary">⬅️ Retour à La Liste Des Réservations</a>
+    </div>
 
     <form action="/reservations/updateReservation/<%= reservation.id %>" method="POST" class="card p-4 shadow-sm bg-white rounded">
       <div class="mb-3">

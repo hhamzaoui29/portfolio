@@ -10,7 +10,7 @@
 </head>
 
 <body class="bg-light">
-     <!-- Barre de navigation -->
+     <!-- =========== Barre de navigation ================= -->
      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
         <!-- Bouton hamburger (mobile) -->
@@ -21,17 +21,20 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <!-- Lien absolu vers ton portfolio -->
           <h1 class="h1">
-            <a href="/portfolio" class="btn btn-secondary">⬅️ ACCUEIL</a>
+            <a href="/projets" class="btn btn-secondary">⬅️ Retour à Liste Des Projets</a>
           </h1>
         </div>
       </div>
     </nav>
+    <!-- ======================= ========================= =================== -->
+
   <div class="container py-4">
-    <h1 class="mb-4"> ✏️ Modifier la note</h1>
+    <h1 class="mb-4"> ✏️ Modifier Une Note</h1>
     <div class="mb-4">
-      <a href="/notes" class="btn btn-secondary">⬅️ Retour</a>
+      <a href="/notes" class="btn btn-secondary">⬅️ Retour à La Liste Des Notes </a>
     </div>
-    <!-- Formulaire avec les valeurs pré-remplies -->
+
+    <!-- ============ Formulaire avec les valeurs pré-remplies =============== -->
     <form action="/notes/updateNote/<%= note.id %>" method="POST" class="card p-4 shadow-sm bg-white rounded">
       <div class="mb-3">
         <label for="titre" class="form-label">Titre</label>
@@ -47,7 +50,8 @@
     
     </form>
   </div>
-    <!-- Footer -->
+
+    <!-- =================== Footer ======================== -->
 <footer class="bg-light text-center py-4 mt-5">
   <p class="mb-1">&copy; <%= new Date().getFullYear() %> Hamzaoui Hamid - Tous droits réservés.</p>
   <ul class="list-inline">
