@@ -37,7 +37,18 @@ app.use('/notes', notesRoutes);
 app.use('/reservations', reservationsRoutes);
 
 
+// Middleware de gestion d'erreurs
+app.use((err, req, res, next) => {
+    console.error("🔥 ERREUR serveur :", err.stack);
+    res.status(500).send("⚠️ Erreur interne du serveur.");
+  });
+
 // Lancement serveur
 app.listen(PORT, () => {
                             console.log(`🚀 Serveur lancé : http://localhost:${PORT}`);
                         });
+
+
+
+console.log("📂 Vues :", path.join(__dirname, "views"));
+console.log("📂 Public :", path.join(__dirname, "public"));
